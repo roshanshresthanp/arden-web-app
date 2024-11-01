@@ -1,0 +1,32 @@
+<?php
+session_start();
+// include('auth/auth.php');
+require '../auth/auth.php';
+
+
+// loginController.php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    // Check if email and password are set
+    $email = isset($_POST['email']) ? trim($_POST['email']) : null;
+    $password = isset($_POST['password']) ? trim($_POST['password']) : null;
+
+    if ($email && $password) {
+        login($email,$password);
+    } else {
+
+        // die('i am here');
+
+        // Handle missing email or password
+        // $_SESSION["message"] = "Login Failed 11";
+        $_SESSION["message"] = "Please enter email and password !!";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
+        // echo "Please fill in all fields correctly";
+    }
+} else {
+    echo "Something is wrong, please try again later";
+}
+?>

@@ -8,6 +8,7 @@ function getCurrentDateTime() {
 function currentYear(){
     return date('Y');
 }
+$base_url = 'hotel-booking';
 $logo = 'https://roshan1997.com.np/assets/images/profile.jpg';
 $address = 'London, United Kingdom';
 $contact = '+44 7778769110';
