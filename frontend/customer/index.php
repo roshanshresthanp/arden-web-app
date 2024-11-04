@@ -1,7 +1,7 @@
 <?php
 require_once 'helpers.php';
 // require_once 'mail.php';
-include('database/connection.php');
+// include('database/connection.php');
 // include_once('route/route.php');
 
 ?>

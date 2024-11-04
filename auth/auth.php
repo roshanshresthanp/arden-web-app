@@ -2,7 +2,7 @@
 
 // require '../auth/auth.php';
 // require '../database/connection.php';
-require __DIR__ . '/../database/connection.php';
+// require __DIR__ . '/../database/connection.php';
 
 
 
@@ -14,7 +14,7 @@ const PASSWORD = 'password';
 
 // die($results)
 
-echo getUsers();
+// echo getUsers();
 
 
 // Login function

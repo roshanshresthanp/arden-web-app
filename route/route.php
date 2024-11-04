@@ -20,10 +20,6 @@ $request = str_replace("/hotel-booking", "", $request);
         case '/login':
             require 'frontend/admin/login.php';
             break;
-        case '/dashboard':
-            protectRoute();   // Protect this route
-            require 'frontend/admin/dashboard.php';
-            break;
         case '/about':
             // protectRoute();   // Protect this route
             require 'frontend/customer/about.php';
@@ -31,6 +27,25 @@ $request = str_replace("/hotel-booking", "", $request);
             case '/contact':
                 require 'frontend/customer/contact.php';
                 break;
+
+        case '/dashboard':
+            protectRoute();   // Protect this route
+            require 'frontend/admin/dashboard.php';
+            break;
+
+        case '/admin/category':
+            protectRoute();   // Protect this route
+            require 'frontend/admin/category/index.php';
+            break;
+        
+        case '/admin/category/create':
+            protectRoute();   // Protect this route
+            require 'frontend/admin/category/create.php';
+            break;
+
+
+
+
 
         case '/logout':
             logout();

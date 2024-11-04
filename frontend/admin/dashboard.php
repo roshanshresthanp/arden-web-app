@@ -1,40 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Admin Panel</title>
 </head>
 <body>
-    <div id="wrapper">
-    <?php include_once('include/header.php') ?>	
-    <div class="pt"></div>	
-    <div class="login-container">
-        <h3 style="padding-bottom:15px">Dashboard in</h3>
+<link rel="stylesheet" href="assets/admin/css/custom.css">
+<!-- Sidebar -->
+<?php include('include/sidebar.php') ?>
 
-        <!-- <form id="loginForm" onsubmit="return validateLoginForm()"> -->
-            <form action="controllers/loginController.php" method="POST">
-            <div id="error-message" class="error">Please fill in all fields correctly.</div>
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <h3>Dashboard</h3>
+        <!-- <div class="admin-info">Welcome</div> -->
+    </div>
 
-            <!-- Email Field -->
-            <input type="email" id="email" placeholder="Email" name="email" >
+    <!-- Dashboard Content -->
+    <div class="dashboard-cards">
+        <div class="card">
+            <h4>Total Users</h4>
+            <p>1,234</p>
+        </div>
+        <div class="card">
+            <h4>Yoga Type</h4>
+            <p>567</p>
+        </div>
+        <div class="card">
+            <h4>Classes</h4>
+            <p>45</p>
+        </div>
+        <div class="card">
+            <h4>Revenue</h4>
+            <p>$12,345</p>
+        </div>
+    </div>
 
-            <!-- Password Field -->
-            <input type="password" id="password" placeholder="Password" name="password">
-
-            <!-- Role Selection -->
-            <select id="role" >
-                <option value="" disabled selected>Select Role</option>
+    <div id="add-user" class="form-container">
+        <h4>Add User</h4>
+        <form>
+            <label for="user-name">Name</label>
+            <input type="text" id="user-name" placeholder="Enter user name">
+            
+            <label for="user-email">Email</label>
+            <input type="email" id="user-email" placeholder="Enter user email">
+            
+            <label for="user-role">Role</label>
+            <select id="user-role">
                 <option value="admin">Admin</option>
                 <option value="customer">Customer</option>
             </select>
-
-            <!-- Submit Button -->
-            <button type="submit">Login</button>
+            
+            <button type="submit">Add User</button>
         </form>
     </div>
-    </div>
+    
+</div>
+
+    
+
 
 
 </body>
