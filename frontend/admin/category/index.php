@@ -6,6 +6,23 @@
     <title>Admin Panel</title>
 
     <link rel="stylesheet" href="../assets/admin/css/custom.css">
+    <link rel="stylesheet" href="../../assets/admin/css/custom.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,6 +30,8 @@
 <!-- require '../auth/auth.php'; -->
 
  <?php
+
+// include __DIR__ . '/../config.php';
 //   include('../include/sidebar.php');
 
   include __DIR__ . '/../include/sidebar.php';
@@ -24,59 +43,43 @@
     <!-- Top Bar -->
     <div class="top-bar">
         <h3>Dashboard</h3>
-        <div class="admin-info">Welcome, Admin</div>
+        <div class="admin-info">
+           <a href="<?php echo url('admin/category/create') ?>" class="btn">Add category</a>
+        </div>
     </div>
+   
 
-    <!-- Add User Form -->
-    <div id="add-user" class="form-container">
-        <h4>Add User</h4>
-        <form>
-            <label for="user-name">Name</label>
-            <input type="text" id="user-name" placeholder="Enter user name">
-            
-            <label for="user-email">Email</label>
-            <input type="email" id="user-email" placeholder="Enter user email">
-            
-            <label for="user-role">Role</label>
-            <select id="user-role">
-                <option value="admin">Admin</option>
-                <option value="customer">Customer</option>
-            </select>
-            
-            <button type="submit">Add User</button>
-        </form>
-    </div>
+    <table>
+        <tr>
+            <td> S.N </td>
+            <td> Name </td>
+            <td>Status</td>
+            <td>Action</td>
+        </tr>
+        <?php 
 
-    <!-- Add Product Form -->
-    <div id="add-product" class="form-container">
-        <h4>Add Product</h4>
-        <form>
-            <label for="product-name">Product Name</label>
-            <input type="text" id="product-name" placeholder="Enter product name">
-            
-            <label for="product-price">Price</label>
-            <input type="number" id="product-price" placeholder="Enter product price">
-            
-            <label for="product-description">Description</label>
-            <textarea id="product-description" placeholder="Enter product description"></textarea>
-            
-            <button type="submit">Add Product</button>
-        </form>
-    </div>
+        require 'database/connection.php';
+         $sql = "SELECT * FROM categories";
+         $result = connectDB()->query($sql);     
+         if ($result->num_rows > 0) {
+            $sn = 1;
+             while ($row = $result->fetch_assoc()) {
+                 echo "<tr>
+                            <td>".$sn++." </td>
+                            <td>".$row['title']." </td>
+                            <td>".$row['status']." </td>
+                            <td><a href='".url('admin/category/edit?id='.$row['id'])."'>Edit</a> &nbsp <a href=''>Delete</a></td>
+                        <tr>";
+             }
+         }
+    ?>
+                        
+       
 
-    <!-- Settings Form -->
-    <div id="settings" class="form-container">
-        <h4>Settings</h4>
-        <form>
-            <label for="admin-email">Admin Email</label>
-            <input type="email" id="admin-email" placeholder="Enter admin email">
-            
-            <label for="admin-password">Password</label>
-            <input type="password" id="admin-password" placeholder="Enter new password">
-            
-            <button type="submit">Save Settings</button>
-        </form>
-    </div>
+        </tr>
+    </table>
+    </table>
+    
 </div>
 
 </body>

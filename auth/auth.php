@@ -4,14 +4,9 @@
 // require '../database/connection.php';
 // require __DIR__ . '/../database/connection.php';
 
-
-
-
-
+require_once __DIR__ . '/../config.php';
 const USERNAME = 'stha901@gmail.com';
 const PASSWORD = 'password';
-
-
 // die($results)
 
 // echo getUsers();
@@ -31,7 +26,8 @@ function login($username, $password) {
         $_SESSION['logged_in'] = true;
         // return true;
         // echo $_SESSION['logged_in'];
-        header('Location: dashboard');
+        header("Location: ".url('dashboard')."");
+
 
         // header("Location: http://" . $_SERVER['HTTP_HOST'] . "/dashboard");
 
@@ -59,7 +55,7 @@ function isAuthenticated() {
 // Protect route function
 function protectRoute() {
     if (!isAuthenticated()) {
-        header('Location: login');
+        header('Location: /login');
         exit();
     }
 }

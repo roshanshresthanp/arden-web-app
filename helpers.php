@@ -25,4 +25,8 @@ $meta_keywords = 'Roshan Shrestha, Roshan, Web Developer, Programming, Roshan po
 $meta_description = 'Roshan Shrestha Freelancer, Creative and best freelancer for web design and development, Digital Marketing and, Mobile App Development';
 $url = 'https://roshan1997.com.np';
 
+
+// define('BASE_URL', '/hotel-booking');
+
+
 ?>

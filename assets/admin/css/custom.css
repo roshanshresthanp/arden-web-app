@@ -189,6 +189,18 @@ body {
     position: relative;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   }
+
+  .alert-success {
+    padding: 20px;
+    background-color:  #4CAF50; /* Success */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px; /* Rounded corners */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
   
   /* Close Button */
   .closebtn {
@@ -205,3 +217,19 @@ body {
     color: #000;
   }
   
+  .btn {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    color: #fff;
+    background-color: #4CAF50;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: #45a049;
+}

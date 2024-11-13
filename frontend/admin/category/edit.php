@@ -17,8 +17,6 @@
 
   include __DIR__ . '/../include/sidebar.php';
 
-
-//   die(url('admin/category/show').'sds' );
   ?>
 
 <!-- Main Content -->
@@ -35,9 +33,8 @@ message();
     <!-- Top Bar -->
     <div class="top-bar">
         <h3>Yoga Category</h3>
-        <div class="admin-info">
-           <a href="<?php echo url('admin/category/show') ?>" class="btn">List category</a>
-        </div>    </div>
+        <!-- <div class="admin-info">Welcome, Admin</div> -->
+    </div>
 
     <!-- Add User Form -->
     <div class="form-container">

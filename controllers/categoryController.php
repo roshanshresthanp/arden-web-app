@@ -25,7 +25,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         // echo "New record added successfully.";
 
-        $_SESSION["message"] = "Record Added Successfully";
+        $_SESSION["success"] = "Record Added Successfully";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
+    } else {
+        // echo "Error: " . $stmt->error;
+        $_SESSION["error"] = "Record Added Successfully";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
+    }
+    // Close the statement
+    $stmt->close();
+
+}
+
+
+//Code for update category
+if ($_SERVER["REQUEST_METHOD"] == "PUT") {
+    
+    $conn = connectDB();
+
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO categories (title, description, status, image) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $title, $description, $status, $img);
+
+    $stmt = $conn->prepare("UPDATE categories SET title = ?, description = ?, status = ?, image = ? WHERE id = ?");
+    $stmt->bind_param("ssssi", $title, $description, $status, $img, $id);
+
+
+
+    // Set parameters and execute
+    $title = isset($_POST['title']) ? trim($_POST['title']) : null;
+    $description = isset($_POST['description']) ? trim($_POST['description']) : null;
+    $status = isset($_POST['status']) ? $_POST['status'] : 1;
+    $img = isset($_POST['image']) ? $_POST['image'] : null;
+
+    if ($stmt->execute()) {
+        // echo "New record added successfully.";
+
+        $_SESSION["message"] = "Record Updated Successfully";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     } else {
@@ -34,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the statement
     $stmt->close();
 
-} else {
-    echo "Something is wrong, please try again later";
-}
+} 
+
+
 ?>
