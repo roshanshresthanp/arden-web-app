@@ -16,7 +16,7 @@
 //   include('../include/sidebar.php');
 
   include __DIR__ . '/../include/sidebar.php';
-
+    require_once 'database/connection.php';
 
 //   die(url('admin/category/show').'sds' );
   ?>
@@ -45,7 +45,7 @@ message();
     <form class="form-control" action="../../controllers/categoryController.php " enctype="multipart/form-data" method="POST">
         <!-- Text input -->
         <label for="name">Title</label>
-        <input type="text" name=title id="name" placeholder="Enter title" required>
+        <input type="text" name="title" id="name" placeholder="Enter title" required>
 
         <!-- Email input -->
         <!-- <label for="email">Email</label>
@@ -62,6 +62,19 @@ message();
             <label><input type="radio" name="status" value="0"> Inactive</label>
         </div>
 
+           <!-- Select dropdown -->
+        <label for="country">Yoga Type</label>
+        <select id="country" required name="type">
+           <?php 
+            foreach(YOGA_TYPE as $yoga){
+                echo '<option value="'.$yoga.'">'.$yoga.'</option>';
+            }
+           ?>
+        </select>
+
+        <label for="name">Video URL</label>
+        <input type="text" name="link" id="link" placeholder="Enter video URL" required>
+
         <!-- Checkboxes -->
         <!-- <div class="checkbox-group">
             <label>Interests</label>
@@ -70,16 +83,7 @@ message();
             <label><input type="checkbox" name="interests" value="tech"> Technology</label>
         </div> -->
 
-        <!-- Select dropdown -->
-        <!-- <label for="country">Country</label>
-        <select id="country" required>
-            <option value="">Select your country</option>
-            <option value="us">United States</option>
-            <option value="ca">Canada</option>
-            <option value="uk">United Kingdom</option>
-            <option value="in">India</option>
-            <option value="other">Other</option>
-        </select> -->
+     
 
         <!-- Date input -->
         <!-- <label for="dob">Date of Birth</label>
@@ -90,8 +94,8 @@ message();
         <input type="time" id="appointment"> -->
 
         <!-- File input -->
-        <label for="resume">Image</label>
-        <input type="file" id="resume" accept=".jpeg,.jpg,.png,.svg,.web" name="image">
+        <!-- <label for="resume">Image</label>
+        <input type="file" id="resume" accept=".jpeg,.jpg,.png,.svg,.web" name="image"> -->
 
         <!-- Submit button -->
         <button type="submit">Submit</button>

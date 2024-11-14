@@ -26,7 +26,7 @@ function login($username, $password) {
         $_SESSION['logged_in'] = true;
         // return true;
         // echo $_SESSION['logged_in'];
-        header("Location: ".url('dashboard')."");
+        header("Location: ".url('dashboard'));
 
 
         // header("Location: http://" . $_SERVER['HTTP_HOST'] . "/dashboard");

@@ -46,4 +46,12 @@ function getUsers()
     return $users;
 }
 
+define('YOGA_TYPE',['Hatha',
+                    'Ashtanga',
+                    'Vinyasa',
+                    'Iyengar',
+                    'Yin',
+                    'Kundalini',
+                    'Bikram',
+                    'Power',]);
 ?>

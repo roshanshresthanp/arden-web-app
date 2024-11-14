@@ -1,6 +1,16 @@
 <?php
 
+// require_once 'database/connection.php';
+
 define('BASE_URL', '/hotel-booking');
+// define('YOGA_TYPE',['Hatha yoga',
+//                     'Ashtanga yoga',
+//                     'Vinyasa yoga',
+//                     'Iyengar yoga',
+//                     'Yin yoga',
+//                     'Kundalini yoga',
+//                     'Bikram yoga',
+//                     'Power yoga',]);
 
 function url($path = '') {
     return BASE_URL . '/' . ltrim($path, '/');
@@ -24,6 +34,11 @@ function message()
     </div>';
         unset($_SESSION['success']); // Clear the message after displaying it
     } 
+}
+
+function countYoga()
+{
+  
 }
 
 ?>
