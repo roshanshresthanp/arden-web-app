@@ -1,21 +1,3 @@
-<?php
-// session_start();
-// require 'auth/auth.php';
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-
-//     if (login($username, $password)) {
-//         header('Location: /dashboard');
-//         exit();
-//     } else {
-//         echo "<p>Invalid username or password</p>";
-//     }
-// }
-
-// die($_SESSION['logged_in']);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +42,7 @@
                 <select id="role">
                     <option value="" disabled selected>Select Role</option>
                     <option value="admin">Admin</option>
-                    <option value="customer">Customer</option>
+                    <!-- <option value="customer">Customer</option> -->
                 </select>
 
                 <!-- Submit Button -->
@@ -68,10 +50,6 @@
             </form>
         </div>
     </div>
-
-
-
-
     <script>
         // Function to validate the login form
         function validateLoginForm() {

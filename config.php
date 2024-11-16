@@ -2,7 +2,7 @@
 
 // require_once 'database/connection.php';
 
-define('BASE_URL', '/hotel-booking');
+define('BASE_URL', '/yoga');
 // define('YOGA_TYPE',['Hatha yoga',
 //                     'Ashtanga yoga',
 //                     'Vinyasa yoga',
@@ -15,6 +15,8 @@ define('BASE_URL', '/hotel-booking');
 function url($path = '') {
     return BASE_URL . '/' . ltrim($path, '/');
 }
+
+// define('FULL_URL','https://stu123910.webhosting.arden.ac.uk/COM6011');
 
 
 function message()

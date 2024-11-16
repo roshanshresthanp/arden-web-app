@@ -34,22 +34,18 @@ message();
 </div> -->
     <!-- Top Bar -->
     <div class="top-bar">
-        <h3>Yoga Category</h3>
+        <h3>Yoga Course</h3>
         <div class="admin-info">
-           <a href="<?php echo url('admin/category/show') ?>" class="btn">List category</a>
+           <a href="<?php echo url('admin/category/show') ?>" class="btn">List Course</a>
         </div>    </div>
 
     <!-- Add User Form -->
     <div class="form-container">
-    <h2>Yoga Category</h2>
+    <h2>Yoga Course</h2>
     <form class="form-control" action="../../controllers/categoryController.php " enctype="multipart/form-data" method="POST">
         <!-- Text input -->
         <label for="name">Title</label>
         <input type="text" name="title" id="name" placeholder="Enter title" required>
-
-        <!-- Email input -->
-        <!-- <label for="email">Email</label>
-        <input type="email" name = "" id="email" placeholder="Enter your email" required> -->
 
         <!-- Textarea -->
         <label for="message">Description</label>
@@ -74,30 +70,6 @@ message();
 
         <label for="name">Video URL</label>
         <input type="text" name="link" id="link" placeholder="Enter video URL" required>
-
-        <!-- Checkboxes -->
-        <!-- <div class="checkbox-group">
-            <label>Interests</label>
-            <label><input type="checkbox" name="interests" value="sports"> Sports</label>
-            <label><input type="checkbox" name="interests" value="music"> Music</label>
-            <label><input type="checkbox" name="interests" value="tech"> Technology</label>
-        </div> -->
-
-     
-
-        <!-- Date input -->
-        <!-- <label for="dob">Date of Birth</label>
-        <input type="date" id="dob" required> -->
-
-        <!-- Time input -->
-        <!-- <label for="appointment">Preferred Appointment Time</label>
-        <input type="time" id="appointment"> -->
-
-        <!-- File input -->
-        <!-- <label for="resume">Image</label>
-        <input type="file" id="resume" accept=".jpeg,.jpg,.png,.svg,.web" name="image"> -->
-
-        <!-- Submit button -->
         <button type="submit">Submit</button>
     </form>
 </div>

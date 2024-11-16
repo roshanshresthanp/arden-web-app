@@ -1,13 +1,7 @@
 <?php
 session_start();
-// include('auth/auth.php');
 require '../auth/auth.php';
 require_once '../database/connection.php';
-
-// die($_POST['_method']);
-// die($_SERVER["REQUEST_METHOD"]);
-// loginController.php
-
 //for update
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['_method'] == 'PUT') {
     
@@ -88,8 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $link = isset($_POST['link']) ? $_POST['link'] : null;
 
     if ($stmt->execute()) {
-        // echo "New record added successfully.";
-
         $_SESSION["success"] = "Record Added Successfully";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();

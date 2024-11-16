@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["message"] = "Please enter email and password !!";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
-        // echo "Please fill in all fields correctly";
     }
 } else {
     echo "Something is wrong, please try again later";

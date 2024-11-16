@@ -32,13 +32,13 @@ message();
 </div> -->
     <!-- Top Bar -->
     <div class="top-bar">
-        <h3>Yoga Category</h3>
+        <h3>Yoga Course</h3>
         <!-- <div class="admin-info">Welcome, Admin</div> -->
     </div>
 
     <!-- Add User Form -->
     <div class="form-container">
-    <h2>Yoga Category</h2>
+    <h2>Yoga Course</h2>
     <form class="form-control" action="../../../controllers/categoryController.php " enctype="multipart/form-data" method="POST">
     <input type="hidden" name="_method" value="PUT">
         <!-- Text input -->
@@ -100,7 +100,7 @@ message();
         </select>
 
         <label for="name">Video URL</label>
-        <input type="text" name="link" id="link" placeholder="Enter video URL" value="<?php echo $description?>">
+        <input type="text" name="link" id="link" placeholder="Enter video URL" value="<?php echo $link?>">
 
         <!-- Checkboxes -->
         <!-- <div class="checkbox-group">

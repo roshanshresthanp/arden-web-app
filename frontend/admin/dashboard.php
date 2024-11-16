@@ -39,14 +39,6 @@ include('include/sidebar.php')
                 echo $count;
             ?></p>
         </div>
-        <!-- <div class="card">
-            <h4>Classes</h4>
-            <p>45</p>
-        </div>
-        <div class="card">
-            <h4>Revenue</h4>
-            <p>$12,345</p>
-        </div> -->
     </div>
     
 </div>

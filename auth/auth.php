@@ -5,7 +5,7 @@
 // require __DIR__ . '/../database/connection.php';
 
 require_once __DIR__ . '/../config.php';
-const USERNAME = 'stha901@gmail.com';
+const USERNAME = 'yoga@admin.com';
 const PASSWORD = 'password';
 // die($results)
 
@@ -14,23 +14,9 @@ const PASSWORD = 'password';
 
 // Login function
 function login($username, $password) {
-
-    // $conn = connectDB();
-    // $sql = "SELECT id, password, email, role FROM users";
-    // $result = $conn->query($sql);
-    // die($result);
-    $sql = "SELECT id, password, email FROM users";
-    // $result = $conn->query($sql);
-
     if ($username === USERNAME && $password === PASSWORD) {
         $_SESSION['logged_in'] = true;
-        // return true;
-        // echo $_SESSION['logged_in'];
         header("Location: ".url('dashboard'));
-
-
-        // header("Location: http://" . $_SERVER['HTTP_HOST'] . "/dashboard");
-
         exit();
     }
     // echo "loinn failde";
@@ -55,7 +41,7 @@ function isAuthenticated() {
 // Protect route function
 function protectRoute() {
     if (!isAuthenticated()) {
-        header('Location: /login');
+        header('Location: login');
         exit();
     }
 }
