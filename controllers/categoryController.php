@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $_SESSION["success"] = "Record Added Successfully";
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SESSION['previous_page']);
         exit();
     } else {
         // echo "Error: " . $stmt->error;
