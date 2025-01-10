@@ -5,8 +5,5 @@
     <a href="<?php echo url('dashboard') ; ?>" class="">Dashboard</a>
     <a href="<?php echo url('admin/category/show') ; ?>">Yoga Course</a>
     <a href="<?php echo url('admin/message') ; ?>">Customer Enquiry</a>
-    <!-- <a href="#">Contact</a> -->
-    <!-- <a href="#">Reports</a> -->
-    <!-- <a href="#">Settings</a> -->
     <a href="<?php echo url('logout') ; ?>">Logout</a>
 </div>

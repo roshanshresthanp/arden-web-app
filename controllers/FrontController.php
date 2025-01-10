@@ -1,13 +1,7 @@
 <?php
 session_start();
-// include('auth/auth.php');
 require '../auth/auth.php';
 require_once '../database/connection.php';
-
-// die($_POST['_method']);
-// die($_SERVER["REQUEST_METHOD"]);
-// loginController.php
-
 
 //for message store
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

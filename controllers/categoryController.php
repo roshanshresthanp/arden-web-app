@@ -65,8 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['
 
 //for create
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // die('hiii post create');
-
     $conn = connectDB();
 
     // Prepare and bind

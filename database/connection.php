@@ -1,7 +1,5 @@
 <?php
 
-// include('route/route.php');
-
 function connectDB(){
 
     $servername = "localhost";
@@ -11,10 +9,7 @@ function connectDB(){
 
     // Create connection to the database
     $conn = new mysqli($servername, $username, $password, $dbname);
-
-
     // Check connection status
-
     if ($conn->connect_error) {
         die("Database connection failed: " . $conn->connect_error);
     }

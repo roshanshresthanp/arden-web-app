@@ -1,16 +1,7 @@
 <?php
-
-// require '../auth/auth.php';
-// require '../database/connection.php';
-// require __DIR__ . '/../database/connection.php';
-
 require_once __DIR__ . '/../config.php';
 const USERNAME = 'yoga@admin.com';
 const PASSWORD = 'password';
-// die($results)
-
-// echo getUsers();
-
 
 // Login function
 function login($username, $password) {

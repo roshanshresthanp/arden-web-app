@@ -31,9 +31,6 @@
 
  <?php
 
-// include __DIR__ . '/../config.php';
-//   include('../include/sidebar.php');
-
   include __DIR__ . '/../include/sidebar.php';
 
   ?>
@@ -63,7 +60,6 @@ message();
         </tr>
         <?php 
 
-        // require 'database/connection.php';
          $sql = "SELECT * FROM categories";
          $result = connectDB()->query($sql);     
          if ($result->num_rows > 0) {
