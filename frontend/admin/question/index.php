@@ -25,14 +25,8 @@
     </style>
 </head>
 <body>
-
-<!-- Sidebar -->
-<!-- require '../auth/auth.php'; -->
-
  <?php
-
   include __DIR__ . '/../include/sidebar.php';
-
   ?>
 
 <!-- Main Content -->
@@ -48,8 +42,6 @@ message();
            <a href="<?php echo url('admin/question/create') ?>" class="btn">Add Question</a>
         </div>
     </div>
-   
-
     <table>
         <tr>
             <td> S.N </td>

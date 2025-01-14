@@ -26,10 +26,6 @@ function handleRoute()
             require 'frontend/customer/quiz.php';
             break;
 
-        case '/quiz/result':
-            require 'frontend/customer/quiz.php';
-            break;
-
         case '/dashboard':
             protectRoute(); // Protect this route
             require 'frontend/admin/dashboard.php';

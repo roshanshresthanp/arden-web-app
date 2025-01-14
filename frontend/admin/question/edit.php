@@ -33,9 +33,7 @@ message();
          <?php 
             $parts = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
             $id = end($parts);
-
             // echo $id;
-
             require_once 'database/connection.php';
             $sql = "SELECT * FROM questions WHERE id = ".$id;
             $result = connectDB()->query($sql);  
@@ -49,14 +47,7 @@ message();
 
             $status = $data['status']?? null;
             $correct = $data['correct'] ?? null; 
-            // echo $status;
-            // var_dump(($result->fetch_assoc())['title']);
-
-
             require_once 'config.php';
-
-
-            // die($id);
          ?> 
                  <input type="hidden" name=id value="<?php echo $id?>" >
 

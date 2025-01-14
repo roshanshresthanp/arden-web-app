@@ -6,7 +6,6 @@ require_once '../database/connection.php';
 //for update
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['_method'] == 'PUT') {
     
-    // Set parameters and execute
     $question = isset($_POST['question']) ? trim($_POST['question']) : null;
     $status = isset($_POST['status']) ? $_POST['status'] : 1;
     $a = isset($_POST['a']) ? $_POST['a'] : null;
@@ -30,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['
         exit();
     }
     $stmt->close();
-
     exit();
 
 }
