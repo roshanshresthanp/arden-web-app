@@ -25,14 +25,12 @@
                 if ($ite == 4) {
                     break; // Stop script execution
                 }
-                echo '        <li><a href="'.url($type).'">'.$type.'</a></li>
-
-';
+                echo '<li><a href="'.url($type).'">'.$type.'</a></li>';
             }
 
-            echo '        <li><a href="'.url('contact').'">Contact</a></li>
-'
+            echo '<li><a href="'.url('contact').'">Contact</a></li>'
         ?>
+        <li><a href="<?php echo url('/quiz'); ?> ">Quiz</a></li>
         <?php 
         if (isset($_SESSION["logged_in"])) {
             echo '<li><a href="'.url('dashboard').'" class="btn" target="_blank"><b>DASHBOARD</b></a></li>';

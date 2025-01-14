@@ -1,85 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Quiz Page</title>
 </head>
-<body>
-<div id="wrapper">
-    <?php include_once('include/header.php') ?>	
-            <div class="pt"></div>
-        <div class="contact-container">
-                <h3 style="padding-bottom:15px">Contact Us</h3>
 
-                <?php
+<body>
+    <div id="wrapper">
+        <?php include_once 'include/header.php'; ?>
+        <h2>Attempt the following questions</h2>
+        <div class="quiz-container">
+
+        <?php
 message();
 ?>
-                <form id="contactForm" action="controllers/FrontController.php" method="POST">
-                    <div id="error-message" class="error">Please fill in all fields correctly.</div>
-                    
-                    <input type="text" name="name" id="name" placeholder="Your Name">
-                    <input type="email" id="email" name="email" placeholder="Your Email">
-                    <textarea id="message" placeholder="Your Message" name="message"></textarea>
-                    
-                    <button type="submit">Submit</button>
-                </form>
-        </div>
+            
+            <!-- <div class="form-container"> -->
+                <form id="quizForm" action="controllers/quizController.php" method="POST" onsubmit="return validateQuizForm()">
+                <?php
+                require_once 'database/connection.php';
 
-        <!--Start of Contact Us Section-->
-		<!-- <a name="contact-link"> -->
-            <br><br>
-		<section class="contact" style="padding-top: 15px;">
-			<div class="contactWrapper">
-				<h3 style="text-decoration: underline;">CONTACT US</h3>
-				<br>
-				<p class="contact-address">
-					yogaClass<br>
-					<strong class="phone"><?php echo $contact ?></strong><br><br>
-					<?php echo $address ?>
-					yogaClass@gmail.com
-				</p>
-				<br>
-				<ul class="social">
-					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-					<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-				</ul>
-			</div>
-			<div class="contactWrapper">
-				<h3 style="text-decoration: underline;">OUR LOCATION</h3>
-				<br>
-				<div class="google-map">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.0443638323745!2d-1.4705229233279817!3d52.36961557202218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4877498da2c26cb9%3A0x4968f82759308638!2sArden%20University!5e0!3m2!1sen!2suk!4v1731587537780!5m2!1sen!2suk" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-				</div>
-				
+                $conn = connectDB();
+                $sql = "SELECT * FROM questions";
+                $result = connectDB()->query($sql);                
+                if ($result->num_rows > 0) {
+                    $i = 0;
+                    while ($row = $result->fetch_assoc()) {
+                        $i++;
+                        // echo $i;
+                        $id = $row['id'];
+                        echo '<h4 style="padding-bottom:20px"> ' . $i . '. ' . $row['question'] . '</h4>';
 
-			</div>
-		</section>
-		<!--End of Contact Us Section-->
-    
-</div>
+                        echo '<table border="0" width="100%" style="padding-bottom:25px">';
+                        echo '<tr>';
+                        echo '<td> a. ' . $row['a'] . '&nbsp<input type="radio" name="correct['.$id.']" value="a" >' . '</td>';
+                        echo '<td> b. ' . $row['b'] . '&nbsp<input type="radio" name="correct['.$id.']" value="b" >' . '</td>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td> c. ' . $row['c'] . '&nbsp<input type="radio" name="correct['.$id.']" value="c" >' . '</td>';
+                        echo '<td> d. ' . $row['d'] . '&nbsp<input type="radio" name="correct['.$id.']" value="d" >' . '</td>';
+                        echo '</tr>';
+                        echo '</table>';
+                    }
+                } else {
+                    echo "<h4 class='video-title' style='text-align:center;'>No records found in the database.</h4>";
+                }
 
+                ?>
+                 <!-- Submit Button -->
+                 <button type="submit" class="submit-btn">Submit</button>
+                 <button type="reset" class="reset-btn">Reset</button>
+
+            </div>
+
+            </form>
+        <!-- </div> -->
+    </div>
 
 <script>
-    // Form validation function
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const errorMessage = document.getElementById('error-message');
-        
-        // Check if all fields are filled
-        if (name === '' || email === '' || message === '') {
-            errorMessage.style.display = 'block';
-            event.preventDefault(); // Prevent form submission
-        } else {
-            errorMessage.style.display = 'none';
-            // alert('Message sent successfully!');
-        }
-    });
+    // Form validation 
+    function validateQuizForm() {
+        const form = document.getElementById('quizForm');
+        const questions = form.querySelectorAll('table');
+        let isValid = true;
+
+        questions.forEach((question, index) => {
+            const inputs = question.querySelectorAll('input[type="radio"]');
+            const isAnswered = Array.from(inputs).some(input => input.checked);
+            if (!isAnswered) {
+                alert('Please answer question ' + (index + 1));
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
 </script>
 
 </body>
+
 </html>

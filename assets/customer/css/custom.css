@@ -285,31 +285,6 @@
   
   
   
-  
-  /*--------------------*/
-  /* PRICING SECTION*/
-  /*--------------------*/
-  
-  table {
-      border-collapse: collapse;
-      width: 100%;
-      border: 1px solid #ddd;
-     
-  }
-  
-  th, td {
-      text-align: center;
-      padding: 8px;
-  }
-  
-  tr:nth-child(even){background-color: #f2f2f2}
-  
-  th {
-      background-color: #e67e22;
-      color: white;
-  }
-  
-  
   /*--------------------*/
   /* TESTIMONIAL SECTION */
   /*--------------------*/
@@ -672,18 +647,6 @@
   color: #000;
 }
 
-/* .btn {
-  display: inline-block;
-  padding: 0.8em 1.5em;
-  color: #fff;
-  background-color: #4CAF50;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 1em;
-  text-align: center;
-  transition: background-color 0.3s ease;
-} */
-
 /* Hover effect */
 .btn:hover {
   background-color: #45a049;
@@ -755,5 +718,83 @@
 
 .play-btn:hover {
   background-color: #45a049;
+}
+
+  /* Login form styling */
+  .quiz-container {
+    width: 100%;
+    /* max-width: 400px; */
+    margin: auto;
+    padding: 2em;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.quiz-container h2 {
+    margin-bottom: 1em;
+    color: #333;
+}
+.quiz-container input, .quiz-container select, .quiz-container button {
+    /* width: 100%; */
+    padding: 0.8em;
+    margin: 0.5em 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.quiz-container .submit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.quiz-container .reset-btn {
+  background-color: #f03d3d;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.quiz-container .submit-btn:hover {
+    background-color: #45a049;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+.retry-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:  #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.retry-btn:hover {
+  background-color: #45a049;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
 }
   
