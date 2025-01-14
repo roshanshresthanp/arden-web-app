@@ -4,7 +4,7 @@ require '../auth/auth.php';
 require_once '../database/connection.php';
 
 $conn = connectDB();
-$sql = "SELECT * FROM questions";
+$sql = "SELECT * FROM questions ORDER BY id DESC";
 $result = $conn->query($sql);
 $userAnswers = isset($_REQUEST['correct']) ? $_REQUEST['correct'] : [];
 

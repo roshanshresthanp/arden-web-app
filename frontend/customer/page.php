@@ -26,7 +26,7 @@ require_once 'helpers.php';
 			require_once 'database/connection.php';
 
 			$conn = connectDB();
-			$sql = "SELECT * FROM categories WHERE type = ? AND status = 1";
+			$sql = "SELECT * FROM categories WHERE type = ? AND status = 1 ORDER BY id DESC";
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param("s", $yoga_type);
 			$stmt->execute();

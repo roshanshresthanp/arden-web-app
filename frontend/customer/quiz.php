@@ -22,7 +22,7 @@
                 require_once 'database/connection.php';
 
                 $conn = connectDB();
-                $sql = "SELECT * FROM questions";
+                $sql = "SELECT * FROM questions ORDER BY id DESC";
                 $result = connectDB()->query($sql);
                 if ($result->num_rows > 0) {
                     $i = 0;

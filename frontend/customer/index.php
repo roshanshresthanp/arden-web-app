@@ -21,7 +21,7 @@ require_once 'helpers.php';
 			// require_once 'database/connection.php';
 			$conn = connectDB();
 
-			$sql = "SELECT * FROM categories WHERE status = 1";
+			$sql = "SELECT * FROM categories WHERE status = 1 ORDER BY id DESC";
 			$stmt = $conn->prepare($sql);
 			$stmt->execute();
 			$result = $stmt->get_result();
