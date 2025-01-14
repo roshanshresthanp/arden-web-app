@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="../../assets/admin/css/custom.css">
 </head>
 <body>
-
-<!-- Sidebar -->
-<!-- require '../auth/auth.php'; -->
-
  <?php
 //   include('../include/sidebar.php');
 
