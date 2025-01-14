@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,76 +13,81 @@
             width: 100%;
             border-collapse: collapse;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             border: 1px solid black;
         }
-        th, td {
+
+        th,
+        td {
             padding: 10px;
             text-align: left;
         }
+
         th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
+
 <body>
- <?php
-  include __DIR__ . '/../include/sidebar.php';
-  ?>
-
-<!-- Main Content -->
-<div class="main-content">
-    <!-- Top Bar -->
-
-<?php
-message();
-?>
-    <div class="top-bar">
-        <h3>Yoga Question</h3>
-        <div class="admin-info">
-           <a href="<?php echo url('admin/question/create') ?>" class="btn">Add Question</a>
+    <?php
+    include __DIR__ . '/../include/sidebar.php';
+    ?>
+    <!-- Main Content -->
+    <div class="main-content">
+        <?php
+        message();
+        ?>
+        <div class="top-bar">
+            <h3>Yoga Question</h3>
+            <div class="admin-info">
+                <a href="<?php echo url('admin/question/create') ?>" class="btn">Add Question</a>
+            </div>
         </div>
-    </div>
-    <table>
-        <tr>
-            <td> S.N </td>
-            <td> Question </td>
-            <td> Options</td>
-            <td> Correct Answer</td>
-            <td>Status</td>
-            <td>Action</td>
-        </tr>
-        <?php 
+        <table>
+            <tr>
+                <td> S.N </td>
+                <td> Question </td>
+                <td> Options</td>
+                <td> Correct Answer</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+            <?php
 
-         $sql = "SELECT * FROM questions";
-         $result = connectDB()->query($sql);     
-         if ($result->num_rows > 0) {
-            $sn = 1;
-             while ($row = $result->fetch_assoc()) {
-                 echo "<tr>
-                            <td>".$sn++." </td>
-                            <td>".$row['question']." </td>
-                            <td> a) ".$row['a'].'&nbsp b)'.$row["b"].'&nbsp c)'.$row["c"].'&nbsp d)'.$row["d"]." </td>
-                            <td>".$row['correct']." </td>
-                            <td>".$row['status']." </td>
-                            <td><a href='".url('admin/question/edit/'.$row['id'])."'>Edit</a> &nbsp
+            $sql = "SELECT * FROM questions";
+            $result = connectDB()->query($sql);
+            if ($result->num_rows > 0) {
+                $sn = 1;
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>" . $sn++ . " </td>
+                            <td>" . $row['question'] . " </td>
+                            <td> a) " . $row['a'] . '&nbsp b) ' . $row["b"] . '&nbsp c) ' . $row["c"] . '&nbsp d) ' . $row["d"] . " </td>
+                            <td>" . $row['correct'] . " </td>
+                            <td>" . $row['status'] . " </td>
+                            <td><a href='" . url('admin/question/edit/' . $row['id']) . "'>Edit</a> &nbsp
                                 <form action='../../controllers/questionController.php' method='POST' onsubmit='return confirm('Are you sure you want to delete this question?');'>
-                                <input type='hidden' name='id' value=".$row['id'].">
+                                <input type='hidden' name='id' value=" . $row['id'] . ">
                                 <input type='hidden' name='_method' value='DELETE'>
                                 <button type='submit'>Delete</button>
                             </form>
                         <tr>";
-             }
-         }
-    ?>
-                        
-       
+                }
+            }
+            ?>
 
-        </tr>
-    </table>
-    </table>
-    
-</div>
+
+
+            </tr>
+        </table>
+        </table>
+
+    </div>
 
 </body>
+
 </html>
