@@ -20,7 +20,6 @@
                 echo '<h3 style="padding-bottom:15px">Log in</h3>';
             }
             ?>
-            <!-- <form id="loginForm" onsubmit="return validateLoginForm()"> -->
             <form action="controllers/loginController.php" method="POST">
 
                 <?php
@@ -36,40 +35,12 @@
                 <input type="email" id="email" placeholder="Email" name="email">
 
                 <!-- Password Field -->
-                <input type="password" id="password" placeholder="Password" name="password">
-
-                <!-- Role Selection -->
-                <select id="role">
-                    <option value="" disabled selected>Select Role</option>
-                    <option value="admin">Admin</option>
-                    <!-- <option value="customer">Customer</option> -->
-                </select>
-
+                <input type="password" id="password" placeholder="Password" name="password">    
                 <!-- Submit Button -->
                 <button type="submit">Login</button>
             </form>
         </div>
     </div>
-    <script>
-        // Function to validate the login form
-        function validateLoginForm() {
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const role = document.getElementById('role').value;
-            const errorMessage = document.getElementById('error-message');
-
-            // Check if all fields are filled
-            if (email === '' || password === '' || role === '') {
-                errorMessage.style.display = 'block';
-                return false;
-            } else {
-                errorMessage.style.display = 'none';
-                alert('Login successful!');
-                return true;
-            }
-        }
-    </script>
-
 </body>
 
 </html>
