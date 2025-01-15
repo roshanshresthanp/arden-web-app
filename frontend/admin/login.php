@@ -16,7 +16,7 @@
             <?php
             if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
                 echo '<h3 style="padding: bottom 15px;">User is already logged in</h3>';
-            }else{
+            } else {
                 echo '<h3 style="padding-bottom:15px">Log in</h3>';
             }
             ?>
@@ -35,7 +35,7 @@
                 <input type="email" id="email" placeholder="Email" name="email">
 
                 <!-- Password Field -->
-                <input type="password" id="password" placeholder="Password" name="password">    
+                <input type="password" id="password" placeholder="Password" name="password">
                 <!-- Submit Button -->
                 <button type="submit">Login</button>
             </form>

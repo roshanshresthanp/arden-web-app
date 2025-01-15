@@ -5,7 +5,7 @@ require_once '../database/connection.php';
 
 //for update
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['_method'] == 'PUT') {
-    
+
     $question = isset($_POST['question']) ? trim($_POST['question']) : null;
     $status = isset($_POST['status']) ? $_POST['status'] : 1;
     $a = isset($_POST['a']) ? $_POST['a'] : null;
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['
     $d = isset($_POST['d']) ? $_POST['d'] : null;
     $c = isset($_POST['c']) ? $_POST['c'] : null;
     $correct = isset($_POST['correct']) ? $_POST['correct'] : null;
-    
+
     $id = $_POST['id'];
     $conn = connectDB();
     $stmt = $conn->prepare("UPDATE questions SET question = ?, a = ?, b = ?, c = ?, d = ?, correct = ?,  status = ? WHERE id = ?");
@@ -25,17 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['
         exit();
     } else {
         $_SESSION["error"] = "Problems in updating Question";
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SESSION['previous_page']);
         exit();
     }
     $stmt->close();
     exit();
-
 }
 
 //for delete
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['_method'] == 'DELETE') {
-    
+
     $id = $_POST['id'];
     $conn = connectDB();
     $stmt = $conn->prepare("DELETE FROM questions WHERE id = ?");
@@ -53,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['_method']) && $_POST['
     // Close the statement
     $stmt->close();
     exit();
-
 }
 
 
@@ -83,14 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // echo "Error: " . $stmt->error;
         $_SESSION["error"] = "Problem in adding question";
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SESSION['previous_page']);
         exit();
     }
     // Close the statement
     $stmt->close();
-
 }
-
-
-
-?>

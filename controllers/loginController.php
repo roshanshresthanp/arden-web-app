@@ -10,13 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = isset($_POST['password']) ? trim($_POST['password']) : null;
 
     if ($email && $password) {
-        login($email,$password);
+        login($email, $password);
     } else {
         $_SESSION["message"] = "Please enter email and password !!";
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SESSION['previous_page']);
         exit();
     }
 } else {
     echo "Something is wrong, please try again later";
 }
-?>

@@ -12,7 +12,7 @@ function login($username, $password) {
     }
     // echo "loinn failde";
     $_SESSION["message"] = "Please enter correct email or password !!";
-    header("Location: " . $_SERVER['HTTP_REFERER']);
+    header("Location: " . $_SESSION['previous_page']);
     exit();
 }
 
